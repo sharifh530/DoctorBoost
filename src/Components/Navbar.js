@@ -5,9 +5,9 @@ import './Navbar.css';
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const [loggedIn, setLoggedIn]= useState(false)
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -17,11 +17,19 @@ function Navbar() {
     }
   };
 
+  const SignOut = () =>{
+    localStorage.removeItem("LoggedIn")
+    setLoggedIn(false)
+    console.log("removed Item")
+  }
+
   useEffect(() => {
     showButton();
-  }, []);
+    setLoggedIn(localStorage.getItem("LoggedIn"))
+  }, [loggedIn]);
 
   window.addEventListener('resize', showButton);
+  
 
   return (
     <>
@@ -40,17 +48,18 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
 
+            {loggedIn?
             <li className='nav-item'>
+            <Link
+              to='/'
+              className='nav-links'
+              onClick={SignOut}
+            >
+              SIGN OUT
+            </Link>
+          </li>:
+              <li className='nav-item'>
               <Link
                 to='/sign-up'
                 className='nav-links'
@@ -59,8 +68,14 @@ function Navbar() {
                 SIGN UP
               </Link>
             </li>
+            }
 
-            <li className='nav-item'>
+            
+            {
+              loggedIn?
+              ""
+              :
+              <li className='nav-item'>
               <Link
                 to='/sign-in'
                 className='nav-links'
@@ -69,6 +84,8 @@ function Navbar() {
                 SIGN IN
               </Link>
             </li>
+            }
+
           </ul>
         </div>
       </nav>

@@ -18,7 +18,7 @@ import Navbar from "../Components/Navbar"
 import {auth,  provider } from "../firebase/firebase";
 
 
-class Registration extends Component {
+class SignUp extends Component {
   state = {
     email: "",
     password: "",
@@ -59,34 +59,16 @@ class Registration extends Component {
           user: result.user
         })
         localStorage.setItem("profile", JSON.stringify(result.additionalUserInfo.profile))
-        console.log(this.state.user)
         localStorage.setItem("LoggedIn", true)
       })
       .catch((error) => alert(error.message))
     }
 
-  // submitRegistration = e => {
-  //   e.preventDefault();
-  //   if (!this.passwordMatch()) {
-  //     this.setState({
-  //       errorOpen: true,
-  //       error: "Passwords don't match"
-  //     });
-  //   }
-  //   const newUserCredentials = {
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     passwordConfrim: this.state.passwordConfrim
-  //   };
-  //   console.log("this.props.newUserCredentials", newUserCredentials);
-  //   //dispath to userActions
-  // };
-
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <Navbar />
+        <div>
+            <Navbar />
         <div className={classes.main}>
         <CssBaseline />
         <div>
@@ -95,7 +77,7 @@ class Registration extends Component {
             !this.state.user? 
             <h2>Sign in as a Patient</h2>
             :
-            <h2>Login Approved</h2>
+            <h2>Signup Complete</h2>
           }
         
           <Avatar className={classes.avatar}>
@@ -115,7 +97,7 @@ class Registration extends Component {
               onClick={this.login}
               style={{cursor: "pointer"}}
             >
-            SIGNIN with Google
+            SIGNUP with Google
             </Button>
             :
             <Link to="/doctors" className={classes.button} style={{textDecoration: "none"}} >
@@ -161,75 +143,12 @@ class Registration extends Component {
           ) : null}
         </Paper>
         </div>
-
-        {
-          !this.state.user?
-          <div>
-        <Paper className={classes.paper}>
-        <h2>Sign in as a Doctor</h2>
-          <Avatar className={classes.avatar}>
-            <PeopleAltIcon className={classes.icon} />
-          </Avatar>
-          <form
-            className={classes.form}
-            onSubmit={() => this.submitRegistration}
-          >
-
-            <Link to="/signinasdoctor" className={classes.button} style={{textDecoration: "none"}} >
-            SIGNIN as a Doctor
-            </Link>
-
-            
-          </form>
-
-          {this.state.error ? (
-            <Snackbar
-              variant="error"
-              key={this.state.error}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center"
-              }}
-              open={this.state.errorOpen}
-              onClose={this.errorClose}
-              autoHideDuration={3000}
-            >
-              <SnackbarContent
-                className={classes.error}
-                message={
-                  <div>
-                    <span style={{ marginRight: "8px" }}>
-                      <ErrorIcon fontSize="large" color="error" />
-                    </span>
-                    <span> {this.state.error} </span>
-                  </div>
-                }
-                action={[
-                  <IconButton
-                    key="close"
-                    aria-label="close"
-                    onClick={this.errorClose}
-                  >
-                    <CloseIcon color="error" />
-                  </IconButton>
-                ]}
-              />
-            </Snackbar>
-          ) : null}
-        </Paper>
+        
+      </div>
         </div>
-        :
-        ""
-
-        }
-
-        
-        
-      </div>
-      </div>
       
     );
   }
 }
 
-export default withStyles(register)(Registration);
+export default withStyles(register)(SignUp);

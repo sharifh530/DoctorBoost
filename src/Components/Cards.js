@@ -16,9 +16,12 @@ function Cards() {
         }
       )))
     ))
+
+    
     return () => {
         unsubscribe();
     }
+    
   }, [])
 
   console.log(doctors.map(e => e.id))

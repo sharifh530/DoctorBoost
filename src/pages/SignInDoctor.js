@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import db from "../firebase/firebase"
+import Navbar from "../Components/Navbar"
 
 
  function Login() {
@@ -13,7 +14,6 @@ import db from "../firebase/firebase"
   const [doctors, setDoctors] = useState([])
   const [doctor, setDoctor] = useState("")
   const [login, setLogin] = useState(false)
-  const [error, setError] = useState(false)
 
   useEffect(() => {
       const unsubscribe = db.collection("doctors").onSnapshot(e => (
@@ -46,11 +46,13 @@ import db from "../firebase/firebase"
   }
 
   return (
-    <div className="Login">
+    <div>
+      <Navbar />
+      <div className="Login">
         {login? 
         <div className="doctor-login">
         <Link to={`/chatwithpatient/${doctor}`} style={{textDecoration: "none"}} >
-        SIGNIN as a Doctor
+        Enter
         </Link>    
         </div>    
         :
@@ -82,6 +84,8 @@ import db from "../firebase/firebase"
     }
       
     </div>
+    </div>
+    
   );
 }
 

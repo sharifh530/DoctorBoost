@@ -5,6 +5,7 @@ import "./chat.css"
 import db from "../firebase/firebase"
 import {useParams} from "react-router-dom"
 import firebase from "firebase"
+import Navbar from "../Components/Navbar"
 
 function Chat(props) {
 
@@ -26,7 +27,6 @@ function Chat(props) {
         }
 
         setUser(JSON.parse(localStorage.getItem("profile")))
-        console.log(user)
 
     }, [])
 
@@ -48,7 +48,9 @@ function Chat(props) {
     
 
     return (
-        <div className="chatpage">
+        <div>
+            <Navbar />
+            <div className="chatpage">
             <div className="leftside">
             </div>
             <div className="chat">
@@ -82,6 +84,8 @@ function Chat(props) {
         </div>
         <div className="rightside"></div>
         </div>
+        </div>
+        
         
     )
 }

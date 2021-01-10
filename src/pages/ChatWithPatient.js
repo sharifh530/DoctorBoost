@@ -5,6 +5,7 @@ import "./chat.css"
 import db from "../firebase/firebase"
 import {useParams} from "react-router-dom"
 import firebase from "firebase"
+import Navbar from "../Components/Navbar"
 
 function ChatWithPatient() {
 
@@ -22,7 +23,7 @@ function ChatWithPatient() {
                 setMessages(snapshot.docs.map(doc => doc.data()))
             })
         }
-
+        localStorage.setItem("LoggedIn", true)
     }, [])
 
     
@@ -43,7 +44,9 @@ function ChatWithPatient() {
     
 
     return (
-        <div className="chatpage">
+        <div>
+            <Navbar />
+            <div className="chatpage">
             <div className="leftside">
             </div>
             <div className="chat">
@@ -77,6 +80,8 @@ function ChatWithPatient() {
         </div>
         <div className="rightside"></div>
         </div>
+        </div>
+        
         
     )
 }

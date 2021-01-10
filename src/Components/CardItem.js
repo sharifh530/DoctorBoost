@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Button } from "@material-ui/core";
 
 function CardItem(props) {
-  console.log(props)
+
   return (
     <>
       <li className='cards__item'>
-        <Link className='cards__item__link'>
+        <div className='cards__item__link'>
           <figure className='cards__item__pic-wrap' data-category={props.speciality}>
             <img
               className='cards__item__img'
@@ -21,10 +21,10 @@ function CardItem(props) {
           </div>
           <Link 
           to={`/chat/${props.id}`}
-          style={{color: "red" , backgroundColor: "yellowgreen", fontSize: "30px", position: "absolute", textDecoration: "none", padding: "8px", borderRadius: "5px"}}>
+          style={{color: "red" , backgroundColor: "yellowgreen", fontSize: "30px", position: "absolute", textDecoration: "none", padding: "8px", borderRadius: "5px", cursor: "pointer !important"}}>
             Consult
           </Link>
-        </Link>
+        </div>
       </li>
     </>
   );
