@@ -54,7 +54,7 @@ export const register = theme => ({
   },
   labels: {
     padding: `${theme.spacing(1)}px ${theme.spacing(4)}px`,
-    fontSize: "10px",
+    fontSize: "20px",
     lineHeight: "5px",
     fontFamily: "PT Mono, monospace",
     fontWeight: 300,
@@ -68,7 +68,7 @@ export const register = theme => ({
     marginRight: theme.spacing(1),
     fontFamily: "Cutive Mono, monospace",
     color: textDark,
-    fontSize: "14px",
+    fontSize: "30px",
     padding: `${theme.spacing(1.5)}px ${theme.spacing(1)}px`,
     borderRadius: "8px",
     border: "1.4px solid",

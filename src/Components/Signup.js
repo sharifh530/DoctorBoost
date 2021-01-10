@@ -82,7 +82,7 @@ class Registration extends Component {
             onSubmit={() => this.submitRegistration}
           >
 
-          <FormControl required fullWidth margin="normal">
+          {/* <FormControl required fullWidth margin="normal">
               <InputLabel htmlFor="email" className={classes.labels}>
                 Name
               </InputLabel>
@@ -175,9 +175,8 @@ class Registration extends Component {
                   )
                 }
               />
-            </FormControl>
+            </FormControl> */}
             <Button
-              disabled={!this.isValid()}
               disableRipple
               fullWidth
               variant="outlined"
@@ -186,7 +185,7 @@ class Registration extends Component {
               onClick={this.submitRegistration}
               style={{cursor: "pointer"}}
             >
-              SignUp
+              SignUp with Google
             </Button>
           </form>
 

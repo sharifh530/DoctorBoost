@@ -35,7 +35,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <h2><small class='website-rights'>HealthCare © 2021</small></h2>
+      <h2><small class='website-rights'>DoctorBoost © 2021</small></h2>
       <section class='social-media'>
         <div class='social-media-wrap'>
           
