@@ -7,7 +7,7 @@ import {useParams} from "react-router-dom"
 import firebase from "firebase"
 import Navbar from "../Components/Navbar"
 
-function Chat(props) {
+function Chat() {
 
     const [doctor, setDoctor] = useState("")
     const [input, setInput] = useState("")

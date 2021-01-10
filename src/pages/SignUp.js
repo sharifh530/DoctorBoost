@@ -75,7 +75,7 @@ class SignUp extends Component {
         <Paper className={classes.paper}>
           {
             !this.state.user? 
-            <h2>Sign in as a Patient</h2>
+            <h2>Sign Up as a Patient</h2>
             :
             <h2>Signup Complete</h2>
           }

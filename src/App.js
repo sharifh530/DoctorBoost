@@ -2,9 +2,6 @@ import React from 'react';
 import './App.css';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar';
-// import Services from './components/pages/Services';
-// import Products from './components/pages/Products';
 import SignIn from "./pages/SignIn"
 import DoctorPage from "./pages/DoctorPage"
 import Chat from "./pages/Chat"
